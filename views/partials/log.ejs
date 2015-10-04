@@ -6,11 +6,11 @@
         <td><b>Duration (minutes)</b></td>
         <td><b>Intensity</b></td>
       </tr>
-      <% for (var i = 0; i < 0; i++) { %>
+      <% for (var i = 0; i < activities.length; i++) { %>
         <tr>
-          <td>Placeholder</td>
-          <td>Placeholder</td>
-          <td>Placeholder</td>
+          <td><%= activities[i].activity %></td>
+          <td><%= activities[i].duration %></td>
+          <td><%= activities[i].intensity %></td>
         <tr>
       <% } %>
     </table>
