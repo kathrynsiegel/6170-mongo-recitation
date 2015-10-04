@@ -2,6 +2,9 @@ var mongoose = require("mongoose");
 
 var activitySchema = mongoose.Schema({
   /* Exercise 1: Declare schema here */
+  type: String,
+  duration: Number,
+  intensity: String
 });
 
 // When we 'require' this model in another file (e.g. routes),
