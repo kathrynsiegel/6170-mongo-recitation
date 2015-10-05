@@ -12,9 +12,13 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   activity = req.body;
-  console.log(activity);
-  /* Exercise 4: insert into database */
-  res.send({success: true, message: "Success!"});
-});
+  Activity.create({ type: activity.type, 
+                    duration: activity.duration, 
+                    intensity: activity.intensity}, 
+    function(err, record) {
+      if (err) console.log(err);
+      res.send({success: true, activity: record});
+  });
+})
 
 module.exports = router;

@@ -6,7 +6,9 @@ $(document).ready(function() {
         intensity: $('#intensity-dropdown').val()
     },
     function(resp, status, jQxhr) {
-      // what do we do if it succeeds?
+      $('#hours-table tr:last').after('<tr><td>' + resp.activity.type + '</td>' +
+                                          '<td>' + resp.activity.duration + '</td>' +
+                                          '<td>' + resp.activity.intensity + '</td</tr>');
     }).fail(function(jqXhr, status, err) {
       console.log(err);
     });
