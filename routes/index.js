@@ -16,7 +16,10 @@ router.post('/', function(req, res, next) {
                     duration: activity.duration, 
                     intensity: activity.intensity}, 
     function(err, record) {
-      if (err) console.log(err);
+      if (err) {
+        console.log(err);
+        res.send({success: false, message: err.message});
+      }
       console.log(record.getDescription());
       res.send({success: true, activity: record});
   });

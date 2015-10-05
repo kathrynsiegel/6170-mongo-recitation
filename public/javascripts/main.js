@@ -3,14 +3,18 @@ $(document).ready(function() {
     $.post('/', {
         type: $('#type-input').val(),
         duration: $('#minutes-input').val(),
-        intensity: $('#intensity-dropdown').val()
+        intensity: $('#intensity-input').val()
     },
     function(resp, status, jQxhr) {
-      $('#hours-table tr:last').after('<tr><td>' + resp.activity.type + '</td>' +
+      if (resp.success == true) {
+        $('#hours-table tr:last').after('<tr><td>' + resp.activity.type + '</td>' +
                                           '<td>' + resp.activity.duration + '</td>' +
                                           '<td>' + resp.activity.intensity + '</td</tr>');
+      } else {
+        alert(resp.message);
+      }
     }).fail(function(jqXhr, status, err) {
-      console.log(err);
+      console.log();
     });
   });
   $('#intensity-input li a').click(function() {
