@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $('#submit-button').click(function() {
     $.post('/', {
-        activity: $('#type-input').val(),
+        type: $('#type-input').val(),
         duration: $('#minutes-input').val(),
         intensity: $('#intensity-dropdown').val()
     },
