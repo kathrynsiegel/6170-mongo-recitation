@@ -3,24 +3,17 @@ $(document).ready(function() {
     $.post('/', {
         activity: $('#type-input').val(),
         duration: $('#minutes-input').val(),
-        intensity: "asdf"
+        intensity: $('#intensity-dropdown').val()
     },
     function(resp, status, jQxhr) {
-      if (resp.success) {
-        console.log("yay");
-        $('#success-box').text(resp.message);
-        $('#success-box').css('display', 'block');
-        $('#alert-box').text('');
-        $('#alert-box').css('display', 'none');
-      } else {
-        console.log("boo");
-        $('#alert-box').text(resp.message);
-        $('#alert-box').css('display', 'block');
-        $('#success-box').text('');
-        $('#success-box').css('display', 'none');
-      }
+      // what do we do if it succeeds?
     }).fail(function(jqXhr, status, err) {
       console.log(err);
     });
+  });
+  $('#intensity-input li a').click(function() {
+    console.log($(this).text());
+    $('#intensity-dropdown:first-child').text($(this).text());
+    $('#intensity-dropdown:first-child').val($(this).text());
   });
 });

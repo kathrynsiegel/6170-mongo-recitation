@@ -11,6 +11,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
+  activity = req.body;
+  console.log(activity);
+  /* Exercise 4: insert into database */
   res.send({success: true, message: "Success!"});
 });
 
