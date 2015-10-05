@@ -17,6 +17,7 @@ router.post('/', function(req, res, next) {
                     intensity: activity.intensity}, 
     function(err, record) {
       if (err) console.log(err);
+      console.log(record.getDescription());
       res.send({success: true, activity: record});
   });
 })
